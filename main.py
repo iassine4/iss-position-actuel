@@ -7,12 +7,7 @@ iss_position_url = "http://api.open-notify.org/iss-now.json"
 
 response = requests.get(iss_position_url)
 
-print(response.status_code)
-print(response.headers["Content-Type"])
-print(response.text)
-
 data = response.json()
-print(data)
 
 iss_position = data["iss_position"]
 latitude = iss_position["latitude"]
@@ -23,7 +18,6 @@ date_time = datetime.fromtimestamp(timestamp, tz=timezone.utc)
 
 print("Latitude:", latitude)
 print("Longitude:", longitude)
-print("Timestamp:", timestamp)
 
 print("Date/heure UTC :", date_time)
 
@@ -31,7 +25,6 @@ people_url = "http://api.open-notify.org/astros.json"
 
 people_response = requests.get(people_url)
 
-print(people_response.status_code)
 people_data = people_response.json()
 
 people = people_data["people"]
